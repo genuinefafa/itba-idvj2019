@@ -5,8 +5,10 @@ using UnityEngine;
 public class CubeScript : MonoBehaviour
 {
     private Rigidbody _rb;
-    public KeyCode key1;
-    public KeyCode key2;
+    public KeyCode up;
+    public KeyCode down;
+    public KeyCode left;
+    public KeyCode right;
     //public int hola;
 
     // Start is called before the first frame update
@@ -19,15 +21,25 @@ public class CubeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(key1))
+        if (Input.GetKey(up))
         {
             //transform.
-            _rb.AddTorque(Vector3.right * 1000f * Time.deltaTime);
+            _rb.AddForce(Vector3.forward * 10000f * Time.deltaTime);
         }
-        if (Input.GetKey(key2))
+        if (Input.GetKey(down))
         {
             //transform.
-            _rb.AddTorque(-Vector3.right * 1000f * Time.deltaTime);
+            _rb.AddForce(-Vector3.forward * 10000f * Time.deltaTime);
+        }
+        if (Input.GetKey(right))
+        {
+            //transform.
+            _rb.AddForce(Vector3.right * 10000f * Time.deltaTime);
+        }
+        if (Input.GetKey(left))
+        {
+            //transform.
+            _rb.AddForce(-Vector3.right * 10000f * Time.deltaTime);
         }
     }
 }
